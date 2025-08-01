@@ -1,46 +1,57 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mapa Interativo – Convenção de Magia</title>
+  <meta charset="utf-8">
+  <title>Mapa Interativo de Anfíbios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!-- Script oficial atualizado -->
+  <script type="module"
+    src="https://js.arcgis.com/embeddable-components/4.33/index.js"></script>
 
   <style>
-    body, html {
+    /* ===STRUCTURE ESSENCIAL PARA 100% === */
+    html, body {
       margin: 0;
       padding: 0;
-      height: 100vh;
+      height: 100%;
       width: 100%;
+      overflow: hidden;
     }
-
-    #map-root {
+    /* Container do mapa deve ser viewport total */
+    #map-container {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      height: 100vh;
+      width: 100vw;
     }
 
+    /* O componente precisa ocupar 100% do container */
     arcgis-embedded-map {
-      width: 100%;
-      height: 100%;
       display: block;
-      border: none;
+      height: 100%;
+      width: 100%;
     }
+
+    /* Para evitar compatibilidade com nif html “body scrolling” */
+    body { touch-action: none; }
   </style>
-
-  <script type="module" src="https://js.arcgis.com/4.33/embeddable-components/"></script>
 </head>
-
 <body>
+
+<div id="map-container">
   <arcgis-embedded-map
     item-id="641a0bc35dcd4eb98fde0230bf9f855a"
     theme="light"
-    legend-enabled
-    heading-enabled
+    center="-23.598632812493403,-6.315298538328659"
+    scale="73957190.948944"
+    portal-url="https://www.arcgis.com"
     scroll-enabled
-    style="position:absolute; top:0; left:0;"
-    portal-url="https://www.arcgis.com">
+  >
   </arcgis-embedded-map>
+</div>
+
 </body>
 </html>
