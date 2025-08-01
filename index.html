@@ -1,46 +1,46 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mapa Interativo – Convenção de Magia</title>
+
   <style>
-    .embed-container {
-      position: relative;
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
       width: 100%;
-      padding-bottom: 60%;
-      max-width: 1000px;
-      margin: 3rem auto;
-      overflow: hidden;
     }
-    .embed-container arcgis-embedded-map {
-      position: absolute;
+
+    #map-root {
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
+    }
+
+    arcgis-embedded-map {
+      width: 100%;
+      height: 100%;
+      display: block;
       border: none;
     }
   </style>
-  <!-- Script correto e atualizado -->
+
   <script type="module" src="https://js.arcgis.com/4.33/embeddable-components/"></script>
 </head>
+
 <body>
-  <h1 style="text-align:center; font-family:sans-serif;">Mapa – Mitologia & Anfíbios</h1>
-
-  <div class="embed-container">
-    <arcgis-embedded-map
-      item-id="641a0bc35dcd4eb98fde0230bf9f855a"
-      theme="light"
-      legend-enabled
-      heading-enabled
-      style="width:100%; height:100%;">
-    </arcgis-embedded-map>
-  </div>
-
-  <footer style="text-align:center; font-size:0.8rem; margin:2rem 0; font-family:sans-serif;">
-    © Projeto Mitologia & Anfíbios – UFRJ
-  </footer>
+  <arcgis-embedded-map
+    item-id="641a0bc35dcd4eb98fde0230bf9f855a"
+    theme="light"
+    legend-enabled
+    heading-enabled
+    scroll-enabled
+    style="position:absolute; top:0; left:0;"
+    portal-url="https://www.arcgis.com">
+  </arcgis-embedded-map>
 </body>
 </html>
